@@ -8,8 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Skill extends Model
 {
 	use SoftDeletes;
-    public static function display()
+
+    public function scopeDisplay($query) 
     {
-    	return self::orderBy('name', 'asc')->get();
+    	return $query->orderBy('name', 'asc');
+    }
+
+    public function scopePdf($query, $ids)
+    {
+    	return $query->whereIn('id', $ids)->orderBy('name', 'asc');
     }
 }

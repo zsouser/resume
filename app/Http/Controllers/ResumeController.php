@@ -9,76 +9,77 @@ use App\Http\Controllers\Controller;
 use PDF;
 use Auth;
 use App\Resume;
-use App\Http\Controllers\Traits\PdfTrait;
 use App\Job;
 use App\Project;
-use App\Education;
+use App\Credential;
 use App\Skill;
 use App\Description;
+use App\Objective;
 
 class ResumeController extends Controller
 {
-    use PdfTrait;
-
-    private function getOptions($admin = false) {
-        return [
-            'objective' => Description::whereNull('job_id')
-                            ->whereNull('project_id')
-                            ->orderBy('rank', 'asc')
-                            ->get(),
-            'jobs' => Job::with('descriptions')
-                            ->orderBy('rank', 'asc')
-                            ->get(),
-            'projects' => Project::with('descriptions')
-                            ->orderBy('rank', 'asc')
-                            ->get(),
-            'education' => Education::orderBy('rank', 'asc')
-                            ->get(),
-            'skills' => Skill::orderBy('name', 'asc')
-                            ->get()
-        ];
-    }
-
-    private function getAdminOptions() {
-        return [
-            'objective' => Description::whereNull('job_id')
-                            ->whereNull('project_id')
-                            ->orderBy('rank', 'asc')
-                            ->withTrashed()
-                            ->get(),
-            'jobs'      => Job::with('descriptions')
-                            ->orderBy('rank', 'asc')
-                            ->withTrashed()
-                            ->get(),
-            'projects'  => Project::with('descriptions')
-                            ->orderBy('rank', 'asc')
-                            ->withTrashed()
-                            ->get(),
-            'education' => Education::orderBy('rank', 'asc')
-                            ->get(),
-            'skills'    => Skill::orderBy('name', 'asc')
-                            ->withTrashed()
-                            ->get()
-        ];
-    }
-    
     /**
      * Display the resume view.
      *
      * @return \Illuminate\View
      */
-    public function index()
+    public function getIndex()
     {
-        return view('resume.index', $this->getOptions());
+        return view('resume.index', [
+            'objective' => Objective::active()->first(),
+            'jobs'      => Job::display()->get(),
+            'projects'  => Project::display()->get(),
+            'credentials' => Credential::display()->get(),
+            'skills'    => Skill::display()->get()
+        ]);
     }
 
-    public function admin() 
+    /**
+     * Serve the custom PDF
+     *
+     * @return PDF File
+     */
+    public function postPrint(Request $request)
     {
-        return view('resume.admin', $this->getAdminOptions());
+        return view('resume.pdf', [
+            'phone' => true,
+            'objective' => Objective::pdf($request->get('objectives'))->first(),
+            'jobs'      => Job::pdf($request->get('jobs'))->get(),
+            'projects'  => Project::pdf($request->get('projects'))->get(),
+            'credentials' => Credential::pdf($request->get('credentials'))->get(),
+            'skills'    => Skill::pdf($request->get('skills'))->get()
+        ]);
     }
 
-    public function pdf()
+    /**
+     * Display the options for generating a PDF
+     *
+     * @return \Illuminate\View
+     */
+    public function getPrint()
     {
-        return PDF::loadView('resume.pdf', $this->getOptions())->download();
+        return view('resume.print', [
+            'objectives' => Objective::active()->get(),
+            'jobs'      => Job::display()->get(),
+            'projects'  => Project::display()->get(),
+            'credentials' => Credential::display()->get(),
+            'skills'    => Skill::display()->get()
+        ]);
+    }
+
+    /**
+     * Serve the PDF version of the full resume
+     *
+     * @return PDF File
+     */
+    public function getPdf()
+    {
+        return view('resume.pdf', [
+            'objective' => Objective::active()->first(),
+            'jobs'      => Job::display()->get(),
+            'projects'  => Project::display()->get(),
+            'credentials' => Credential::display()->get(),
+            'skills'    => Skill::display()->get()
+        ]);
     }
 }

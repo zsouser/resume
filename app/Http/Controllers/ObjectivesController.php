@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class JobsController extends Controller
+class ObjectivesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,7 +37,17 @@ class JobsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, function() {
+            'text' => 'required|max:1000'
+        });
+
+        $objective = new Objective($request->only('text'));
+
+        if (!$objective->save()) {
+            return redirect()->back()->withError('Could not save objective')
+        }
+
+        return redirect()->back();
     }
 
     /**
@@ -71,7 +81,17 @@ class JobsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, function() {
+            'text' => 'required|max:1000'
+        });
+
+        $objective = Objective::find($id);
+
+        if (!$objective->save($request->only('text'))) {
+            return redirect()->back()->withError('Could not update objective')
+        }
+
+        return redirect()->back();
     }
 
     /**

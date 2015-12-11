@@ -1,0 +1,156 @@
+@media (min-width:1000px) {
+	#splash {
+		height:765px;
+		color:white;
+		vertical-align:bottom;
+		background:url('/images/face.jpg') no-repeat fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background-position:85% 50%;
+	}
+
+	#splash h1 {
+		position:absolute;
+		top:250px;
+		left:20px;
+	}
+	#splash h2 {
+		position:absolute;
+		top:350px;
+		left:20px;
+	}	
+	#splash a {
+		color:white;
+		position:absolute;
+		top:425px;
+		left:20px;
+	}
+}
+
+@media (max-width:1000px) {
+	#splash {
+		height:765px;
+		color:white;
+		position:relative;
+		padding:5%;
+		background:url('/images/face.jpg') no-repeat fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background-position:85% 50%;
+	}
+
+	#splash h1 {
+		position:absolute;
+		bottom:250px;
+		left:20px;
+	}
+	#splash h2 {
+		position:absolute;
+		bottom:150px;
+		left:20px;
+	}
+
+	#splash a {
+		color:white;
+		position:absolute;
+		bottom:75px;
+		left:20px;
+	}
+}
+
+@media (max-width:500px) {
+	#splash {
+		height:736px;
+		color:white;
+		vertical-align:bottom;
+		background:url('/images/face.jpg') no-repeat fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background-position:85% 50%;
+	}
+
+	#splash h1 {
+		position:absolute;
+		bottom:200px;
+		left:20px;
+	}
+	#splash h2 {
+		position:absolute;
+		bottom:100px;
+		left:20px;
+	}
+	#splash a {
+		color:white;
+		position:absolute;
+		bottom:50px;
+		left:20px;
+	}
+}
+
+@media (max-width:475px) {
+	#splash {
+		height:627px;
+		color:white;
+		vertical-align:bottom;
+		background:url('/images/face.jpg') no-repeat fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background-position:85% 50%;
+	}
+
+	#splash h1 {
+		position:absolute;
+		bottom:250px;
+		left:20px;
+	}
+	#splash h2 {
+		position:absolute;
+		bottom:100px;
+		left:20px;
+	}
+	#splash a {
+		color:white;
+		position:absolute;
+		bottom:50px;
+		left:20px;
+	}
+}
+
+@media (max-width:320px) {
+	#splash {
+		height:568px;
+		color:white;
+		vertical-align:bottom;
+		background:url('/images/face.jpg') no-repeat fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background-position:85% 50%;
+	}
+
+	#splash h1 {
+		position:absolute;
+		bottom:200px;
+		left:20px;
+	}
+	#splash h2 {
+		position:absolute;
+		bottom:75px;
+		left:20px;
+	}
+	#splash a {
+		color:white;
+		position:absolute;
+		bottom:25px;
+		left:20px;
+	}
+}

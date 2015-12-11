@@ -16,16 +16,17 @@ use App\Skill;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('resume.pdf', 'ResumeController@getPdf');
 
-Route::get('resume.pdf', 'ResumeController@pdf');
-Route::get('resume', 'ResumeController@index');
+Route::controller('/resume', 'ResumeController');
 
-Route::group(['middleware' => 'auth.basic'], function() {
-	Route::get('admin', 'ResumeController@admin');
-	Route::resource('education', 'EducationController');
+Route::controller('/auth', 'Auth\AuthController');
+
+Route::get('/', 'ResumeController@postIndex');
+
+Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function() {
+	Route::resource('credentials', 'CredentialsController');
+	Route::resource('organizations', 'OrganizationController');
 	Route::resource('jobs', 'JobsController');
 	Route::resource('projects', 'ProjectsController');
 	Route::resource('skills', 'SkillsController');

@@ -4,17 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Job;
 
 class Description extends Model
 {
 	use SoftDeletes;
-    public function job()
-    {
-    	return $this->belongsTo('App\Job');
-    }
 
-    public function project()
+	protected $morphClass = 'Description';
+
+    public function association()
     {
-    	return $this->belongsTo('App\Project');
+    	return $this->morphTo();
     }
 }

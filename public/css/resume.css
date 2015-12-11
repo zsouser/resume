@@ -1,0 +1,53 @@
+@media (min-width:500px) {
+	.date {
+		float: right;
+	}
+}
+
+@media (max-width:500px) {
+	.date {
+		float: left;
+	}
+}
+.resume {
+	margin: 0 auto;
+	max-width: 90%;
+}
+
+.objective {
+	padding: 10px;
+}
+.job {
+	display: block;
+}
+.project {
+	display: block;
+}
+
+.company {
+	font-style: italic;
+	display: block;
+}
+
+.title {
+	font-weight: bold;
+	display: block;
+}
+
+.qualification {
+	padding-bottom: 10px;
+}
+
+.skills {
+	display: inline-table;
+	padding-bottom: 15px;
+}
+
+.skill {
+	float: left;
+	padding: 10px;
+}
+
+.descriptions {
+	clear: both;
+}

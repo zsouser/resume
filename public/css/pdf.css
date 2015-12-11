@@ -1,0 +1,61 @@
+
+.resume {
+	margin: 0 auto;
+	max-width: 8.5in;
+}
+
+header {
+	border-bottom:1px solid black;
+	text-align:center;
+	padding:10px;
+}
+h3 {
+	border-bottom:1px solid black;
+}
+.objective {
+	padding:10px;
+}
+.job {
+	display:block;
+}
+.project {
+	display:block;
+}
+
+.company {
+	font-style:italic;
+	display:block;
+}
+
+.title {
+	font-weight:bold;
+	display:block;
+}
+
+.qualification {
+	padding-bottom:10px;
+}
+
+.skills {
+	display:inline-table;
+	padding-bottom:15px;
+}
+
+.skill {
+	float:left;
+	padding:5px;
+}
+
+.date {
+	float:right;
+}
+
+.descriptions {
+	clear:both;
+}
+
+body {
+	font-size:12px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+	margin:0 auto;
+}

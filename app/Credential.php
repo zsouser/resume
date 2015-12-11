@@ -3,22 +3,21 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Project;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Job extends Model
+class Credential extends Model
 {
-	use SoftDeletes;
+	protected $morphClass = 'Credential';
 
-	protected $morphClass = 'Job';
-
-    public function descriptions() 
-    {
-    	return $this->morphMany('App\Description', 'association');
-    }
-
-    public function projects()
+    public function projects() 
     {
     	return $this->morphMany('App\Project', 'association');
+    }
+
+    public function images() 
+    {
+    	return $this->morphMany('App\Image', 'association');
     }
 
     public function organization()
@@ -28,7 +27,7 @@ class Job extends Model
 
     public function scopeDisplay($query) 
     {
-    	return $query->orderBy('rank', 'asc')->with('descriptions')->with('organization')->with('projects');
+    	return $query->orderBy('rank', 'asc')->with('organization')->with('projects');
     }
 
     public function scopePdf($query, $ids)
