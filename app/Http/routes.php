@@ -22,7 +22,7 @@ Route::controller('/resume', 'ResumeController');
 
 Route::controller('/auth', 'Auth\AuthController');
 
-Route::get('/', 'ResumeController@postIndex');
+Route::get('/', 'ResumeController@getIndex');
 
 Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function() {
 	Route::resource('credentials', 'CredentialsController');
