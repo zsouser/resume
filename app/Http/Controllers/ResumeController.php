@@ -42,7 +42,7 @@ class ResumeController extends Controller
     public function postPrint(Request $request)
     {
         return view('resume.pdf', [
-            'phone' => true,
+            'personal' => true,
             'objective' => Objective::pdf($request->get('objectives'))->first(),
             'jobs'      => Job::pdf($request->get('jobs'))->get(),
             'projects'  => Project::pdf($request->get('projects'))->get(),

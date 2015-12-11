@@ -77,7 +77,7 @@ h3 {
 	<div class="resume">
 		<header>
 			<h1>Zach Souser</h1>
-			{!! !empty($phone) ? "<b>720.422.0119</b> - " : "" !!}<b>zach.souser@gmail.com</b>
+			{!! !empty($personal) ? "<b> www.zsouser.com - 720.422.0119</b> - " : "" !!}<b>zach.souser@gmail.com</b>
 		</header>
 		<p class="objective section">{{ $objective->text }}</p>
 		<h3>Experience</h3>
@@ -100,7 +100,7 @@ h3 {
 			</div>
 			@endforeach
 		</div>
-		<h3>Skills</h3>
+		<h3>Relevant Skills</h3>
 		<div class="skills">
 			@foreach ($skills as $skill)
 			<span class="skill">{{ $skill->name }}</span>

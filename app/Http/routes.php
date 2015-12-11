@@ -18,13 +18,14 @@ use App\Skill;
 
 Route::get('resume.pdf', 'ResumeController@getPdf');
 
-Route::controller('/resume', 'ResumeController');
 
 Route::controller('/auth', 'Auth\AuthController');
 
 Route::get('/', 'ResumeController@getIndex');
 
 Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function() {
+	Route::get('/print', 'ResumeController@getPrint');
+	Route::post('/print', 'ResumeController@postPrint');
 	Route::resource('credentials', 'CredentialsController');
 	Route::resource('organizations', 'OrganizationController');
 	Route::resource('jobs', 'JobsController');
