@@ -27,7 +27,6 @@
 			<div class="job">
 				<span class="header">
 					<b>{{ $job->title }}</b>
-					<br/>
 					<i>{{ $job->organization->name }}</i> 
 				</span>
 				<span class="date">
@@ -55,7 +54,6 @@
 			<div class="project">
 				<span class="header">
 					{{ $project->name }}
-					<br/>
 					<i> {{ $project->organization->name }} </i>
 				</span>
 				<span class="date">
@@ -74,11 +72,9 @@
 		<h3>Education</h3>
 		<div class="education">
 		@foreach ($credentials as $qualification)
-			
 			<div class="qualification">
 				<span class="header">
 					<b>{{ $qualification->credential }}</b>
-					<br/>
 					<i>{{ $qualification->organization->name }}</i>
 				</span>
 				<span class="date">

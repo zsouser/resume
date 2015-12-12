@@ -35,7 +35,8 @@
 }
 
 .qualification {
-	padding-bottom: 10px;
+	padding: 10px;
+	clear:both;
 }
 
 .skills {
@@ -50,4 +51,16 @@
 
 .descriptions {
 	clear: both;
+}
+
+.header {
+	clear:both;
+}
+
+.header > b {
+	display:block;
+}
+
+.header > i {
+	display:block;
 }
