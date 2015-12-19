@@ -27,12 +27,12 @@
 			<div class="job">
 				<span class="header">
 					<b>{{ $job->title }}</b>
-					<i>{{ $job->organization->name }}</i> 
-				</span>
-				<span class="date">
-					{{ date('F Y', strtotime($job->date_start)) }}
-					-
-					{{ empty($job->date_end) ? 'Present' : date('F Y', strtotime($job->date_end)) }}
+					<i>{{ $job->organization->name }}</i> 	
+					<span class="date">
+						{{ date('F Y', strtotime($job->date_start)) }}
+						-
+						{{ empty($job->date_end) ? 'Present' : date('F Y', strtotime($job->date_end)) }}
+					</span>
 				</span>
 				<ul class="descriptions">
 					@foreach ($job->descriptions as $description)
@@ -55,11 +55,11 @@
 				<span class="header">
 					{{ $project->name }}
 					<i> {{ $project->organization->name }} </i>
-				</span>
-				<span class="date">
-					{{ date('F Y', strtotime($project->date_start)) }}
-					-
-					{{ empty($project->date_end) ? 'Present' : date('F Y', strtotime($project->date_end)) }}
+					<span class="date">
+						{{ date('F Y', strtotime($project->date_start)) }}
+						-
+						{{ empty($project->date_end) ? 'Present' : date('F Y', strtotime($project->date_end)) }}
+					</span>
 				</span>
 				<ul class="descriptions">
 					@foreach ($project->descriptions as $description)
@@ -76,13 +76,13 @@
 				<span class="header">
 					<b>{{ $qualification->credential }}</b>
 					<i>{{ $qualification->organization->name }}</i>
-				</span>
-				<span class="date">
+					<span class="date">
 					@if (!empty($qualification->date_start)) 
 						{{ date('F Y', strtotime($qualification->date_start)) }}
 						-
 					@endif
 					{{ empty($qualification->date_end) ? 'Present' : date('F Y', strtotime($qualification->date_end)) }}
+				</span>
 				</span>
 			</div>
 

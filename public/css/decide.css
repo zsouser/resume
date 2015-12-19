@@ -1,0 +1,42 @@
+body {
+	font-family:"Lato";
+}
+.wrap {
+	width:70%;
+	margin: 0 auto;
+
+}
+#slider {
+	margin:20px;
+}
+
+input {
+	width:100%;
+}
+
+#container {
+	width:50%;
+	margin: 0 auto;
+	float:left;
+}
+
+#results {
+	width:45%;
+	height:100%;
+	position:fixed;
+	left:50%;
+}
+
+#results > h3,
+#results > h1 {
+	text-align:center;
+}
+#choices {
+	padding:20px;
+	background-color:#eee;
+}
+.actions {
+	margin: 0 auto;
+	clear:both;
+	text-align:center;
+}

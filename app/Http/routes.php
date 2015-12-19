@@ -18,6 +18,9 @@ use App\Skill;
 
 Route::get('resume.pdf', 'ResumeController@getPdf');
 
+Route::get('/decide', function() {
+	return view('decide');
+});
 
 Route::controller('/auth', 'Auth\AuthController');
 
